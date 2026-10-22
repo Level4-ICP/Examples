@@ -15,4 +15,5 @@ int main(void)
     printf("The total amount due on £121 is £%.2f\n", total);
     total = calc_taxable_value(290);
     printf("The total amount due on £290 is £%.2f\n", total);
+    fflush(stdout); //otherwise we won't see the console output in the debugger
 }
