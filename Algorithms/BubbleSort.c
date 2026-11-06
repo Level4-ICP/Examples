@@ -1,4 +1,4 @@
-
+//the final thing after stages 1,2 and 3. Add on the bells and whistles
 #include <stdio.h>
 
 void swap(int arr[], int i, int j)
@@ -39,3 +39,5 @@ int main(void)
     printf("sorted");
     printArray(numbers, size);
 }
+
+//note for the inner loop I could improve the speed of it with  for (int i = 0; i < size-1 -j; i++), the - j because it is no longer necessary to sort that part of the list, use the debugger to see why

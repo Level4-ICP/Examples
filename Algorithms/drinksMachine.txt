@@ -1,0 +1,15 @@
+while
+	display drinks menu
+	wait for selection
+	if coffee selected
+		release coffee
+	if tea selected
+		release tea
+	if chocolate selected
+		release chocolate
+
+	wait while water boils
+	drop cup
+	release water
+endwhile
+
