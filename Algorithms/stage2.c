@@ -6,7 +6,7 @@ void swap(int arr[], int i, int j)
     arr[i] = temp2;
     arr[j] = temp;
 }
-int main(void)
+int main()
 {
     int numbers[] = {7,4,8,9,55,99,33,3,54,2};
     int size = sizeof(numbers)/sizeof(int);

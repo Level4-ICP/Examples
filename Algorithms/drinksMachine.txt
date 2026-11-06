@@ -13,3 +13,21 @@ while
 	release water
 endwhile
 
+//but there is a bug in the above
+
+while
+	display drinks menu
+	wait for selection
+	wait while water boils
+    drop cup
+
+	if coffee selected
+		release coffee
+	if tea selected
+		release tea
+	if chocolate selected
+		release chocolate
+
+    release water
+
+endwhile

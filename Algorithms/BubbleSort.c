@@ -40,4 +40,6 @@ int main(void)
     printArray(numbers, size);
 }
 
-//note for the inner loop I could improve the speed of it with  for (int i = 0; i < size-1 -j; i++), the - j because it is no longer necessary to sort that part of the list, use the debugger to see why
+//note for the inner loop I could improve the speed of it with
+//for (int i = 0; i < size-1 -j; i++),
+//the - j because it is no longer necessary to sort that part of the list, use the debugger to see why
