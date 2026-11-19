@@ -30,7 +30,7 @@ D Mullier 11/2026
 * If we needed to get to the last boat (or any intermediate boat)
   * we can get to it by hopping from one boat to the next
 
-<img src="../images/linkedList.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+<img src="../images/LinkedList.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 * This is how a linked list works!
 
@@ -74,22 +74,22 @@ struct Boat *head = NULL;
 ---
 * iteration 1
 
-  <img src="../images/linkedListDiagram1.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+  <img src="../images/LinkedListDiagram1.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 ---
 * iteration 2
 
-  <img src="../images/linkedListDiagram2.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+  <img src="../images/LinkedListDiagram2.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 ---
 * iteration 3
  
-  <img src="../images/linkedListDiagram3.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+  <img src="../images/LinkedListDiagram3.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 ---
 * iteration 4
 
-  <img src="../images/linkedListDiagram4.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+  <img src="../images/LinkedListDiagram4.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 ---
 ## Memory within Programs
