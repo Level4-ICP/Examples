@@ -1,53 +1,97 @@
 # Memory Management
 
+D Mullier 11/2026
+
 ## Overview
 
-* Types of Memory
+* Linked Lists
 * Dynamic Memory Allocation
 * Memory Deallocation
 * Alternative methods of allocation
-* A Worked Example
 * Automated Garbage Collection
-* Points to note & Summary
 
 ---
 ## Linked Lists
 * Linked lists are a common data structure. 
-* They are extremely memory efficient, whereas arrays are not. 
+* They are extremely memory efficient in terms of memory, whereas arrays are not. 
 * The idea is each data item is linked to the next
 * We can therefore add a new data item as it is needed 
   * unlike an array where we need to allocated its maximum size when it is defined
+  
 ---
 ## A Boat Analogy
 * Think of a lot of boats tied together on a river
-  * each boat has a rope, the lead boat is tied to the quayside
-  * the next boat is tied to the lead boat etc
+  * each boat has a rope, the lead boat is tied to the quayside (mooring)
+  * the next boat is tied to the lead boat, etc
 * as each customer comes along 
-  * the boat tied to the quayside is united from the boat behind
+  * the boat tied to the mooring is united from the boat behind and the mooring
   * the boat behind is tied to the quayside
   * the lead boat is now free to go with the customer (and the formerly behind boat is now the lead boat)
-* as each customer returns
-  * the boat can be tied to the last boat
 * If we needed to get to the last boat (or any intermediate boat)
   * we can get to it by hopping from one boat to the next
 
 <img src="../images/linkedList.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 * This is how a linked list works!
+
 ---
 ## Processing the linked list
 * We can now image how a linked list is processed
 * If we want to process any data item
-  * we proceed from the head (the mooring) and traverse each node/boat
+  * we proceed from the head (the mooring) and traverse each node/boat via the pointer/rope
   * we can do this because each boat is tied (each node has a pointer pointing to) the next
-* The linked list can implement a queue
-  * that's what we did on the previous example 
-    * customer arrives and gets the lead boat
-    * customer returns and the boat is added to the end
-* It can implement a stack
-  * the lead boat is handed out
-  * a returning boat is added to the mooring post and the former lead boat is attached to it
+* The linked list can implement many different data structures
+ * a queue (a boat added to the end would be used last)
+ * a stack (a boat added to the beginning would be used first)
+* It only ever needs the minimal amount of memory
+  * but finding an item requires traversing along the list sequentially
+* An array must be big enough to cope with the worst case, but it can be accessed with "random access"
+  * Linked list = smaller but slower, array = bigger but faster
   
+---
+see [rowing_boat_linked_list.c example](rowing_boat_linked_list.c)
+```c++
+struct Boat
+{
+    int id;
+    struct Boat *next;
+};
+```
+```c++
+struct Boat *head = NULL;
+    int number;
+    printf("How many boats? ");
+    scanf("%d", &number);
+    while (number>0)
+    {
+            struct Boat *newBoat = malloc(sizeof(struct Boat)); //allocate memory for a new boat
+            newBoat->id = number;
+            number--;
+            newBoat->next = head; //connect the rope of the new boat to what is currently connected to head
+            head = newBoat;
+    }
+```
+---
+* iteration 1
+
+  <img src="../images/linkedListDiagram1.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+
+---
+* iteration 2
+
+  <img src="../images/linkedListDiagram2.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+
+---
+* iteration 3
+ 
+  <img src="../images/linkedListDiagram3.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+
+---
+* iteration 4
+
+  <img src="../images/linkedListDiagram4.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+
+---
 ## Memory within Programs
 
 * When a program is running, it uses memory to store data, e.g. in variables.
