@@ -1,0 +1,6 @@
+england iran 3 0
+wales usa 1 0
+england wales x 0
+usa iran 2 1
+england use 1
+iran wales 0 5
