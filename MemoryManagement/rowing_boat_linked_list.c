@@ -101,7 +101,7 @@ int main()
             struct Boat *newBoat = malloc(sizeof(struct Boat)); //allocate memory for a new boat
             newBoat->id = number;
             newBoat->next = head;   //connect the rope of the new boat to what is currently connected to head (make them the same)
-            head = newBoat;         //connect head to newboat
+            head = newBoat;         //connect head to newBoat
             number--;
     }
 
