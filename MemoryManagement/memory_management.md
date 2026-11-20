@@ -15,8 +15,11 @@ D Mullier 11/2026
 * Linked lists are a common data structure. 
 * They are extremely memory efficient in terms of memory, whereas arrays are not. 
 * The idea is each data item is linked to the next
-* We can therefore add a new data item as it is needed 
+  * the linking is achieved using pointers
+  * it can grow and shrink
+* We can add a new data item as it is needed and remove it when it is not 
   * unlike an array where we need to allocated its maximum size when it is defined
+  * all you can do is copy data to a new array
   
 ---
 ## A Boat Analogy
@@ -33,6 +36,7 @@ D Mullier 11/2026
 <img src="../images/LinkedList.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 * This is how a linked list works!
+  * the boat is the data, the rope is the pointer
 
 ---
 ## Processing the linked list
@@ -76,9 +80,12 @@ struct Boat *head = NULL;
 
   <img src="../images/LinkedListDiagram1.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
+
 ---
 * iteration 2
 
+  <img src="../images/LinkedListDiagram1b.jpg" width="600" alt="Rowing boats analogy for a linked list" />
+  
   <img src="../images/LinkedListDiagram2.jpg" width="600" alt="Rowing boats analogy for a linked list" />
 
 ---

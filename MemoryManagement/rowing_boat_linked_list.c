@@ -40,7 +40,7 @@ void inspect_boats(struct Boat *head)
 }
 
 /// passing the head and the boat id to remove
-///
+/// note you can pass pointers by reference by using ** i.e. Boat **head, then it wouldn't be necessary to return it
 struct Boat *remove_boat(struct Boat *head, int id)
 {
     struct Boat *current = head, *found = NULL, *previous = head;
@@ -100,9 +100,9 @@ int main()
     {
             struct Boat *newBoat = malloc(sizeof(struct Boat)); //allocate memory for a new boat
             newBoat->id = number;
+            newBoat->next = head;   //connect the rope of the new boat to what is currently connected to head (make them the same)
+            head = newBoat;         //connect head to newboat
             number--;
-            newBoat->next = head; //connect the rope of the new boat to what is currently connected to head
-            head = newBoat;
     }
 
     inspect_boats(head);
