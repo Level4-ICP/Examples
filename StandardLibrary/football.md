@@ -8,5 +8,6 @@ See the commit history for how it was built stage by stage
 
 [Version 2 - convert scores to integers and determine match outcome](https://github.com/Level4-ICP/Examples/commit/5e646acc3f550020dcf9cddc09e15848ee2bfc02)
 
-[Version 3 - Added TeamEntry structure to record points for each team and logic to allocate points]()
+[Version 3 - Added TeamEntry structure to record points for each team and logic to allocate points](https://github.com/Level4-ICP/Examples/commit/6fcaa23990503fa2baebb43572fe98d5f413f02f)
 
+[Version 4 - Sort the table]()

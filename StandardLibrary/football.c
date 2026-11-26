@@ -1,10 +1,11 @@
 /* football.c
- * V3
+ * V4
  * hard coded data
  * prints out matches in correct format
  * Converts goals into integers
  * Added TeamEntry structure to record points for each team
  * and logic to allocate points
+ * sort the table
  */
 
 #include <stdio.h>
@@ -45,6 +46,30 @@ static int find_or_add_team(TeamEntry table[], int *team_count, const char *name
     }
 
     return -1;
+}
+/* bubble sort the table
+ */
+static void sort_table(TeamEntry table[], int team_count)
+{
+    for (int i = 0; i < team_count - 1; i++)
+    {
+        int best_idx = i;
+
+        for (int j = i + 1; j < team_count; j++)
+        {
+            if (table[j].points > table[best_idx].points)
+            {
+                best_idx = j;
+            }
+        }
+
+        if (best_idx != i)
+        {
+            TeamEntry temp = table[i];
+            table[i] = table[best_idx];
+            table[best_idx] = temp;
+        }
+    }
 }
 
 int main(void)
@@ -104,6 +129,7 @@ int main(void)
         }
     }
 
+    sort_table(table, total_items);
     printf("\n=== League Table ===\n");
     for (int i = 0; i < team_count; i++)
     {
