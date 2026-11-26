@@ -1,6 +1,10 @@
 # Football
 
-A bigger problem done bit by bit (divide and conquer)
+A bigger problem done bit by bit (divide and conquer).
+
+The spec is to read some football match data from a file, process the data so that each match can have the teams allocated points.
+
+Generate a sorted league table.
 
 See the commit history for how it was built stage by stage
 
@@ -12,4 +16,4 @@ See the commit history for how it was built stage by stage
 
 [Version 4 - Sort the table](https://github.com/Level4-ICP/Examples/commit/3c98a9c0bdcf863344d7ae4afd1c358da138c692)
 
-[Version 5 - ]
+[Version 5 - Reads data from a file](https://github.com/Level4-ICP/Examples/commit/09fef954d6af266434592aeb817cd72e73641719)
