@@ -1,3 +1,7 @@
+/* footballV1.c
+ set data straight into an array then printit out in required format
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
