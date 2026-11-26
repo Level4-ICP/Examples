@@ -1,18 +1,19 @@
 /* football.c
- * V4
+ * V5
  * hard coded data
  * prints out matches in correct format
  * Converts goals into integers
  * Added TeamEntry structure to record points for each team
  * and logic to allocate points
  * sort the table
+ * reads data from a file
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define MAX_TEAMS 32
+#define MAX_LINE_LEN 128
 
 typedef struct
 {
@@ -20,11 +21,16 @@ typedef struct
     int points;
 } TeamEntry;
 
-/*
- * table[] to store details in
- * team_count how many teams are currently in it
- * team to search for or add if not found
- */
+static void strip_newline(char *line)
+{
+    size_t len = strlen(line);
+    while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
+    {
+        line[len - 1] = '\0';
+        len--;
+    }
+}
+
 static int find_or_add_team(TeamEntry table[], int *team_count, const char *name)
 {
     for (int i = 0; i < *team_count; i++)
@@ -47,8 +53,7 @@ static int find_or_add_team(TeamEntry table[], int *team_count, const char *name
 
     return -1;
 }
-/* bubble sort the table
- */
+
 static void sort_table(TeamEntry table[], int team_count)
 {
     for (int i = 0; i < team_count - 1; i++)
@@ -74,26 +79,48 @@ static void sort_table(TeamEntry table[], int team_count)
 
 int main(void)
 {
-    const char *matches[] = {
-        "England", "1", "USA", "0",
-        "England", "3", "USA", "2",
-        "Scotland", "2", "Wales", "1",
-        "France", "3", "Germany", "2",
-        "Spain", "1", "Italy", "1"
-    };
+    FILE *fp = fopen("matches.txt", "r");
+    if (fp == NULL)
+    {
+        printf("Could not open matches.txt\n");
+        return 1;
+    }
 
-    int total_items = sizeof(matches) / sizeof(matches[0]);
     TeamEntry table[MAX_TEAMS] = {0};
     int team_count = 0;
 
-    for (int i = 0; i < total_items; i += 4)
-    {
-        const char *home_team = matches[i]; //here we arent creating a new variable, we are pointing at an existing one
-        int home_goals = atoi(matches[i + 1]);
-        const char *away_team = matches[i + 2];
-        int away_goals = atoi(matches[i + 3]);
+    char home_team[MAX_LINE_LEN];
+    char home_score_str[MAX_LINE_LEN];
+    char away_team[MAX_LINE_LEN];
+    char away_score_str[MAX_LINE_LEN];
 
-        //find or add the teams to the league table
+    while (!feof(fp))
+    {
+        if (fgets(home_team, sizeof(home_team), fp) == NULL)
+        {
+            break;
+        }
+        if (fgets(home_score_str, sizeof(home_score_str), fp) == NULL)
+        {
+            break;
+        }
+        if (fgets(away_team, sizeof(away_team), fp) == NULL)
+        {
+            break;
+        }
+        if (fgets(away_score_str, sizeof(away_score_str), fp) == NULL)
+        {
+            break;
+        }
+
+        strip_newline(home_team); //we need to strip to get rid of the \n character that separates lines in a file
+        strip_newline(home_score_str);
+        strip_newline(away_team);
+        strip_newline(away_score_str);
+
+        int home_goals = atoi(home_score_str);
+        int away_goals = atoi(away_score_str);
+
         int home_idx = find_or_add_team(table, &team_count, home_team);
         int away_idx = find_or_add_team(table, &team_count, away_team);
 
@@ -128,8 +155,10 @@ int main(void)
             }
         }
     }
+    fclose(fp);
 
-    sort_table(table, total_items);
+    sort_table(table, team_count);
+
     printf("\n=== League Table ===\n");
     for (int i = 0; i < team_count; i++)
     {
