@@ -1,10 +1,12 @@
 /* football.c
- * V1
+ * V2
  * hard coded data
  * prints out matches in correct format
+ * Converts goals into integers
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -19,7 +21,25 @@ int main(void)
 
   for (int i = 0; i < total_items; i += 4)
   {
-    printf("%s %s V %s %s\n", matches[i], matches[i + 1], matches[i + 3], matches[i + 2]);
+    const char *home_team = matches[i];
+    int home_goals = atoi(matches[i + 1]);
+    const char *away_team = matches[i + 2];
+    int away_goals = atoi(matches[i + 3]);
+
+    printf("%s %d V %d %s -> ", home_team, home_goals, away_goals, away_team);
+
+    if (home_goals > away_goals)
+    {
+      printf("%s won\n", home_team);
+    }
+    else if (away_goals > home_goals)
+    {
+      printf("%s won\n", away_team);
+    }
+    else
+    {
+      printf("Draw\n");
+    }
   }
 
   return 0;
