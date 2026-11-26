@@ -28,8 +28,11 @@ This repository includes detailed Markdown guides for various C programming topi
 * **[Arrays and Pointers](ArraysAndPointers/arrays_and_pointers.md)**  
   Explores fixed-size collections and direct memory access in C. Topics include array indexing, multi-dimensional arrays, pointer operators (`&`, `*`, `->`), pointer arithmetic, and the relationship between arrays and pointers.
 * **[Memory Management](MemoryManagement/memory_management.md)**
-
-  Pointers in action, dynamically allocating and deallocating memory.
+  
+* Pointers in action, dynamically allocating and deallocating memory.
+* **[The Standard Library](StandardLibrary/the_c_standard_library.md)**
+  
+* Here a bigger program is introduced. It is shown developed stage by stage. It uses many standard library functions.
 
 # Top Tips
 - ifs/whiles/fors do not have a single = for equality checking, it must be == e.g if(a==b) and not if (a=b)
